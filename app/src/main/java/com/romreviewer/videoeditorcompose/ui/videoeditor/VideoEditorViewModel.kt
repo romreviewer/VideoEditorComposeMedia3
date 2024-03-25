@@ -66,6 +66,7 @@ class VideoEditorViewModel(
             override fun onCompleted(composition: Composition, result: ExportResult) {
                 Log.i("VideoEditorViewModel", "Completed $result")
                 updateExportLoading(false)
+                state.update { it.copy(isBackPressed = true) }
             }
 
             override fun onError(

@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,13 +37,14 @@ import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.source.ProgressiveMediaSource
 import androidx.media3.ui.AspectRatioFrameLayout
 import androidx.media3.ui.PlayerView
+import androidx.navigation.NavController
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.romreviewer.videoeditorcompose.ui.common.LoadingDialog
 
-@kotlin.OptIn(ExperimentalPermissionsApi::class)
 @OptIn(UnstableApi::class)
 @Composable
 fun VideoEditorScreen(
+    navController: NavController,
     viewModel: VideoEditorViewModel
 ) {
     val context = LocalContext.current
@@ -87,7 +89,11 @@ fun VideoEditorScreen(
                 prepare()
             }
     }
-    
+    LaunchedEffect(state.isBackPressed) {
+        if (state.isBackPressed) {
+            navController.popBackStack()
+        }
+    }
     DisposableEffect(Unit) {
         onDispose { exoPlayer.release() }
     }

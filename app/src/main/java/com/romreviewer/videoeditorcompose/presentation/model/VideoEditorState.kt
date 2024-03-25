@@ -8,4 +8,5 @@ data class VideoEditorState(
     val isPlaying: Boolean = false,
     val initTime: Long = 0L,
     val isExporting: Boolean = false,
+    val isBackPressed: Boolean = false,
 )

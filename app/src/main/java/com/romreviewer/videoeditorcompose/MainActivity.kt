@@ -61,7 +61,9 @@ class MainActivity : ComponentActivity() {
                         "video_editor/{uri}",
                         arguments = listOf(navArgument("uri") { type = NavType.StringType })
                     ) {
-                        VideoEditorScreen(viewModel = viewModel())
+                        VideoEditorScreen(viewModel = viewModel(),
+                            navController = navController
+                        )
                     }
                 }
             }
