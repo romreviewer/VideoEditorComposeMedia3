@@ -17,6 +17,10 @@ Please note that VideoEditor is currently in its initial stage of development. A
 2. Open the project in Android Studio.
 3. Build and run the application on an Android device or emulator.
 
+## DemoVideo
+https://github.com/romreviewer/VideoEditorComposeMedia3/assets/5242439/db8709ef-0db2-4105-9c12-58503f1cdb55
+
+
 ## Usage
 1. Upon launching the app, users are greeted with a home screen displaying option for selecting videp.
 2. Users can import existing videos or capture new ones using the built-in photopicker functionality.
